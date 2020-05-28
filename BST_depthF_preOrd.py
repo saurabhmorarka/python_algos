@@ -66,6 +66,7 @@ class BST(object):
     
     def print_helper(self, start, traverse):
         """print tree's helper function"""
+        """Add one more comment to test git from spyder"""
         traverse.append(str(start.value)+'-')
         if start.left:
             self.print_helper(start.left, traverse)
