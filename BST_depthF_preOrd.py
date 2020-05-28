@@ -62,7 +62,6 @@ class BST(object):
         traverse = []
         self.print_helper(self.root, traverse)
         sep = '-'*len(traverse)
-#        print(sum(zip(traverse, sep),()) [:-1])
         print(''.join(traverse)[:-1])
     
     def print_helper(self, start, traverse):
