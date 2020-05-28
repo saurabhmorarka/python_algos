@@ -40,22 +40,32 @@ class BST(object):
             else:
                 start.right = Node(new_element)
                 return
+
+    def delete(self, del_val):
+        """ this function deletes the del_val from tree if exists and rearranges the tree if needed"""
+        if self.root:
+            search_results = self.search_helper(self.root, del_val)
+            if search_results[0]:
+                self.delete_helper(search_results[1])            
+            return 0 
+
+    def delete_helper(self, del_val):
+        """this helper function does the actual deletion, given the node to delete"""
+        print("something")
     
     def search(self, find_val):
         """return 1 if found and -1 if not"""
-        return (self.search_helper(self.root, find_val))
+        return (self.search_helper(self.root, find_val)[1])
        
     def search_helper(self, start, find_val):
         if start.value == find_val:
-            return 1
+            return 1, start
         elif (find_val < start.value and not start.left) or (find_val > start.value and not start.right):
-            return 0
+            return 0, start
         elif find_val < start.value:
             return self.search_helper(start.left, find_val)
         else:
             return self.search_helper(start.right, find_val)
-            
-            
         
     def print_tree(self):
         """prints the tree"""
@@ -66,12 +76,12 @@ class BST(object):
     
     def print_helper(self, start, traverse):
         """print tree's helper function"""
-        """Add one more comment to test git from spyder"""
         traverse.append(str(start.value)+'-')
         if start.left:
             self.print_helper(start.left, traverse)
         if start.right:
             self.print_helper(start.right, traverse)
+
 
 tree=BST(4)
 tree.insert(5)
@@ -80,4 +90,5 @@ tree.insert(1)
 tree.insert(2)
 tree.insert(1.5)
 tree.print_tree()
-print(tree.search(1.5))
+#print(tree.search(1.5))
+tree.delete(1.5)
