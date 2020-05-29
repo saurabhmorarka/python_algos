@@ -20,6 +20,16 @@ class BST(object):
     def __init__(self, rootEle):
         self.root = Node(rootEle)
 
+    def insert(self, element):
+        if self.root:
+            start = self.root
+            list = [start]
+            for node in list:
+                if element < node.value and node.left:
+                    list.append[]
+            
+        else:
+            self.root = Node(element)
 
 tree=BST(4)
 tree.insert(5)
