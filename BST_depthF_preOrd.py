@@ -49,8 +49,14 @@ class BST(object):
     def delete_helper(self, start, del_val, list):
         """find the element and delete"""
         if start.value == del_val:
-            if not list[-1].left and not list[-1].right:
-                ## Depends which matched list[-1].left = None or list[-1].right = None
+            parent = list[-1]
+            kid = start
+            kid_is_left = 1 if parent.left == kid else 0
+            if not kid.left and not kid.right:
+                if kid_is_left: 
+                    parent.left = None
+                else:
+                    parent.right = None
             
             return 1
         elif (del_val < start.value and not start.left) or (del_val > start.value and not start.right):
@@ -98,6 +104,7 @@ tree.insert(6)
 tree.insert(1)
 tree.insert(2)
 tree.insert(1.5)
-#tree.print_tree()
+tree.print_tree()
 #print(tree.search(1.5))
 tree.delete(1.5)
+#tree.print_tree()
