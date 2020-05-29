@@ -25,18 +25,21 @@ class BST(object):
             start = self.root
             list = [start]
             for node in list:
-                if element < node.value and node.left:
-                    list.append[]
-            
+                if (element < node.value and node.left) or element > node.value and node.right:
+                    list.append(node.left if element < node.value else node.right)
+                elif element < node.value and not node.left:
+                    node.left = Node(element)
+                else:
+                    node.right = Node(element)
         else:
             self.root = Node(element)
 
 tree=BST(4)
 tree.insert(5)
-#tree.insert(6)
-#tree.insert(1)
-#tree.insert(2)
-#tree.insert(1.5)
+tree.insert(6)
+tree.insert(1)
+tree.insert(2)
+tree.insert(1.5)
 #tree.print_tree()
 ##print(tree.search(1.5))
 #tree.delete(1.5)
