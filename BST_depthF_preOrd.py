@@ -57,6 +57,11 @@ class BST(object):
                     parent.left = None
                 else:
                     parent.right = None
+            #elif  if kid.left or kid.right but the don't have any kids
+            #then just promote one of the kids .. say left
+            #elif if kid.left or kid.right and they have kids
+            #search for left most leaft and promote it.
+            
             
             return 1
         elif (del_val < start.value and not start.left) or (del_val > start.value and not start.right):
