@@ -34,6 +34,22 @@ class BST(object):
         else:
             self.root = Node(element)
 
+    def print_tree(self):
+        if self.root:
+            start = self.root
+            list = [start]
+            for node in list:
+                print(node.value)
+                if node.left:
+                    list.append(node)
+                elif node.right:
+                    list.append(node)
+                else:
+                    #how do we start backwards from list nodes?
+                    
+                
+        return
+    
 tree=BST(4)
 tree.insert(5)
 tree.insert(6)
